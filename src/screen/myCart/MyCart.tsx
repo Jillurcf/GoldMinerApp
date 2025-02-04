@@ -12,8 +12,11 @@ import tw from '../../lib/tailwind';
 import Swiper from 'react-native-swiper';
 import InputText from '../../component/InputText';
 import Header from '../../component/Header';
+import DropdownComponent from '../../component/DropDown';
+import {SvgXml} from 'react-native-svg';
+import {IconBack} from '../../assets/icon/icon';
 
-const Home = ({navigation}) => {
+const MyCart = ({navigation}) => {
   const [searchItem, setSearchItem] = useState('');
 
   const Data = {
@@ -30,6 +33,30 @@ const Home = ({navigation}) => {
       },
       {
         id: 2,
+        title: 'Solid cubon link 7MM to 16MM 14k',
+        images: require('../../assets/images/image2.png'),
+        price: 'From $56.42 USD',
+      },
+      {
+        id: 3,
+        title: 'Solid cubon link 7MM to 16MM 14k',
+        images: require('../../assets/images/image1.png'),
+        price: 'From $56.42 USD',
+      },
+      {
+        id: 4,
+        title: 'Solid cubon link 7MM to 16MM 14k',
+        images: require('../../assets/images/image2.png'),
+        price: 'From $56.42 USD',
+      },
+      {
+        id: 5,
+        title: 'Solid cubon link 7MM to 16MM 14k',
+        images: require('../../assets/images/image1.png'),
+        price: 'From $56.42 USD',
+      },
+      {
+        id: 6,
         title: 'Solid cubon link 7MM to 16MM 14k',
         images: require('../../assets/images/image2.png'),
         price: 'From $56.42 USD',
@@ -54,11 +81,11 @@ const Home = ({navigation}) => {
   };
 
   const handleProductDetails = id => {
-    navigation.navigate('ProductDetails', {id, from: 'cubanLink'});
+    navigation.navigate('ProductDetails', {id, from: 'myCart'});
   };
 
   const handleSellerProductDetails = id => {
-    navigation.navigate('ProductDetails', {id, from: 'customDesign'});
+    navigation.navigate('SellerProductDetails', {id});
   };
 
   return (
@@ -66,36 +93,19 @@ const Home = ({navigation}) => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="always">
-        {/* <View style={tw`mt-3`}>
-          <InputText
-            value={searchItem}
-            onChangeText={value => setSearchItem(value)}
-            placeholder="Search"
-          />
-        </View> */}
-<Header />
-        {/* Banner Section */}
-        <View style={tw`h-40 rounded-xl overflow-hidden mt-4`}>
-          <Swiper autoplay loop paginationStyle={tw`bottom-2`}>
-            {Data.banners.map(banner => (
-              <View key={banner.id} style={tw`justify-center items-center`}>
-                <Image
-                  source={banner.image}
-                  style={tw`w-full h-40`}
-                  resizeMode="cover"
-                />
-              </View>
-            ))}
-          </Swiper>
-        </View>
-
         {/* CubonLink Products */}
+
         <View>
-        <View style={tw`flex-row  justify-between`}>
-            <Text style={tw`text-title text-base font-bold mt-4`}>
-             Cubon link Products
-            </Text>
-           
+          <View style={tw`flex-row  justify-between`}>
+            <TouchableOpacity
+              style={tw`mt-4 flex-row items-center gap-2 pb-2`}
+              onPress={() => navigation?.goBack()}>
+              <SvgXml xml={IconBack} />
+              <Text style={tw`text-title text-base font-PoppinsMedium`}>
+                {'Go back'}
+              </Text>
+            </TouchableOpacity>
+            <Text style={tw`text-title text-base font-bold mt-4`}>My Cart</Text>
           </View>
           <View style={tw`flex-row flex-wrap justify-between`}>
             {Data?.recommendedProducts.map(product => (
@@ -111,45 +121,17 @@ const Home = ({navigation}) => {
                   {product.title}
                 </Text>
 
-                <Text style={tw`text-gray-700 text-xs`}>{product.price}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-        </View>
-
-        {/* Custom Products */}
-        <View>
-          <View style={tw`flex-row  justify-between`}>
-            <Text style={tw`text-title text-base font-bold mt-4`}>
-              Custom Design Products
-            </Text>
-           
-          </View>
-          <View style={tw`flex-row flex-wrap justify-between`}>
-            {Data.sellerProducts.map(product => (
-              <TouchableOpacity
-                key={product.id}
-                style={tw`w-[48%] rounded-xl bg-gray-200 p-2 mt-2`}
-                onPress={() => handleSellerProductDetails(product.id)}>
-                <Image
-                  source={product.images}
-                  style={tw`h-38 w-full rounded-xl`}
-                />
-                <Text style={tw`text-title text-sm font-bold mt-1`}>
-                  {product.title}
-                </Text>
-
-                <Text style={tw`text-gray-700 text-xs`}>{product.price}</Text>
+                <Text style={tw`text-gray-700 text-xs`}>€{product.price}</Text>
               </TouchableOpacity>
             ))}
           </View>
         </View>
       </ScrollView>
-      <StatusBar translucent={false}/>
+      <StatusBar translucent={false} />
     </View>
   );
 };
 
-export default Home;
+export default MyCart;
 
 const styles = StyleSheet.create({});

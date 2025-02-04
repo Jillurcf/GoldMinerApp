@@ -4,6 +4,11 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {SvgXml} from 'react-native-svg';
 import tw from '../lib/tailwind';
 import Home from '../screen/home/Home';
+import { IconCubonLink, IconCubonLinkFocus, IconCustomDesign, IconCustomDesignFocus, IconHomeDark, IconHomeLight, IconProfile, IconProfileFocus, IconUserDark, IconUserLight } from '../assets/icon/icon';
+import Profile from '../screen/profile/Profile';
+import CubonLink from '../screen/cubonLink/CubonLink';
+import CustomDesign from '../screen/customDesign/CustomDesign';
+
 
 // import {
 //   IconCategoryDark,
@@ -26,50 +31,52 @@ function BottomRoutes() {
     <Tab.Navigator
       screenOptions={({route}) => ({
         headerShown: false,
-        tabBarStyle: tw`h-14 bg-white`,
+        tabBarStyle: tw`h-18    bg-white`,
         tabBarItemStyle: {
           marginVertical: 10,
         },
         tabBarLabelStyle: {
-          display: 'none',
+          // display: 'none',
+          fontSize: 12,
+          marginBottom: 12
         },
-        tabBarActiveTintColor: '#929299', // You can adjust this to the color you want for active label
+        tabBarActiveTintColor: '#E8A934', // You can adjust this to the color you want for active label
         tabBarButton: props => <TouchableOpacity {...props} />,
-        // tabBarIcon: ({focused}) => {
-        //   let icon;
-        //   let iconBackground = focused ? 'primary' : 'transparent'; // Red background for active tab
+        tabBarIcon: ({focused}) => {
+          let icon;
+          let iconBackground = focused ? 'primary' : 'transparent'; 
+          switch (route.name) {
+            case 'Home':
+              icon = focused ? IconHomeLight : IconHomeDark;
+              break;
 
-        //   switch (route.name) {
-        //     case 'Home':
-        //       icon = focused ? IconHomeLight : IconHomeDark;
-        //       break;
+              case 'CubonLink':
+                icon = focused ? IconCubonLinkFocus : IconCubonLink;
+                break;
+            case 'CustomDesign':
+              icon = focused ? IconCustomDesignFocus : IconCustomDesign;
+              break;
+            case 'Profile':
+              icon = focused ? IconProfileFocus : IconProfile;
+              break;
 
-        //     case 'Categories':
-        //       icon = focused ? IconCategoryLight : IconCategoryDark;
-        //       break;
-        //     case 'Product':
-        //       icon = focused ? IconProductLight : IconProductDark;
-        //       break;
-        //     case 'Profile':
-        //       icon = focused ? IconUserLight : IconUserDark;
-        //       break;
+            // default:
+            //   icon = focused ? IconUserDark : IconUserDark;
+            //   break;
+          }
 
-        //     default:
-        //       icon = focused ? IconUserDark : IconUserDark;
-        //       break;
-        //   }
-
-        //   return (
-        //     <View style={tw`rounded-2xl bg-${iconBackground} py-2 px-4`}>
-        //       <SvgXml xml={icon} />
-        //     </View>
-        //   );
-        // },
+          return (
+            <View style={tw`rounded-2xl py-2 px-4`}>
+              <SvgXml xml={icon} />
+            </View>
+          );
+        },
       })}>
       <Tab.Screen name="Home" component={Home} />
-      {/* <Tab.Screen name="Categories" component={Categories} />
-      <Tab.Screen name="Product" component={AddProducts} />
-      <Tab.Screen name="Profile" component={Profile} /> */}
+      <Tab.Screen name="CubonLink" component={CubonLink} />
+     
+      <Tab.Screen name="CustomDesign" component={CustomDesign} /> 
+      <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );
 }
