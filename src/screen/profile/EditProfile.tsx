@@ -1,18 +1,23 @@
-// 
+//
 
-import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
+import {View, Text, ScrollView, TouchableOpacity, Image, StatusBar} from 'react-native';
 import React, {useState} from 'react';
 import tw from '../../lib/tailwind';
 
 import {SvgXml} from 'react-native-svg';
 
 import {launchImageLibrary} from 'react-native-image-picker';
-import { IconBack, IconCloseEye, IconEdit, IconKey, IconOpenEye, IconTik } from '../../assets/icon/icon';
+import {
+  IconBack,
+  IconCloseEye,
+  IconEdit,
+  IconKey,
+  IconOpenEye,
+  IconTik,
+} from '../../assets/icon/icon';
 import InputText from '../../component/InputText';
 import Button from '../../component/Button';
 import NormalModal from '../../component/NormalModal';
-
- 
 
 const EditProfile = ({navigation}: any) => {
   // State declarations
@@ -26,9 +31,9 @@ const EditProfile = ({navigation}: any) => {
   const [isShowConfirmPassword, setIsShowConfirmPassword] = useState(false);
   const [imageUri, setImageUri] = useState<any>(null);
   const [saveChangesModalVisible, setSaveChangesModalVisible] = useState(false);
-console.log("38", imageUri)
+  console.log('38', imageUri);
   // API hooks
- 
+
   // Log profile data for debugging
   console.log('ProfileData', oldPassword, newPassword, confirmPassword);
 
@@ -64,70 +69,69 @@ console.log("38", imageUri)
   // console.log('Selected Image URI:', imageUri);
 
   // Handle save profile
-//   const handleSaveProfile = async () => {
-//     try {
-//       const formData = new FormData();
-  
-//       // Add name and address to FormData
-//       formData.append('name', username || profileData?.data?.name);
-//       formData.append('address', location || profileData?.data?.address);
-  
-//       // Add image to FormData (if available)
-//       if (imageUri && imageUri.length > 0) {
-//         const fileUri = imageUri[0]; // Assuming single image
-//         const fileName = fileUri.split('/').pop();
-//         const fileType = `image/${fileName?.split('.').pop()}`;
-//         formData.append('image', {
-//           uri: fileUri,
-//           name: fileName,
-//           type: fileType,
-//         });
-//       }
-  
-//       console.log('Form Data:', formData);
-  
-//       const response = await postEditProfile(formData).unwrap();
-//       console.log('Profile Updated Successfully:', response);
-  
-//       if (response) {
-//         setSaveChangesModalVisible(true);
-//       }
-//     } catch (error) {
-//       console.error('Failed to save profile:', error);
-//     }
-//   };
-  
+  //   const handleSaveProfile = async () => {
+  //     try {
+  //       const formData = new FormData();
+
+  //       // Add name and address to FormData
+  //       formData.append('name', username || profileData?.data?.name);
+  //       formData.append('address', location || profileData?.data?.address);
+
+  //       // Add image to FormData (if available)
+  //       if (imageUri && imageUri.length > 0) {
+  //         const fileUri = imageUri[0]; // Assuming single image
+  //         const fileName = fileUri.split('/').pop();
+  //         const fileType = `image/${fileName?.split('.').pop()}`;
+  //         formData.append('image', {
+  //           uri: fileUri,
+  //           name: fileName,
+  //           type: fileType,
+  //         });
+  //       }
+
+  //       console.log('Form Data:', formData);
+
+  //       const response = await postEditProfile(formData).unwrap();
+  //       console.log('Profile Updated Successfully:', response);
+
+  //       if (response) {
+  //         setSaveChangesModalVisible(true);
+  //       }
+  //     } catch (error) {
+  //       console.error('Failed to save profile:', error);
+  //     }
+  //   };
+
   // handle password
   const handleChangePassword = async () => {
-    console.log("click");
-  
+    console.log('click');
+
     // Prepare the payload
     const payload = {
       current_password: oldPassword,
       new_password: newPassword,
       c_password: confirmPassword,
     };
-  
-    console.log("updatePassword", payload);
-  
+
+    console.log('updatePassword', payload);
+
     // try {
     //   // Call the mutation directly with the payload
     //   const response = await postChangePassword(payload).unwrap();
-  
+
     //   console.log("change password", response);
-  
+
     //   // Show success modal
     //   setSaveChangesModalVisible(true);
     // } catch (error) {
     //   // Handle errors
     //   console.log("Error changing password:", error);
-  
+
     //   if (error?.data?.message) {
     //     console.error("Validation errors:", error.data.message);
     //   }
     // }
   };
-  
 
   return (
     <View style={tw`bg-white px-[4%] h-full pb-2`}>
@@ -140,7 +144,9 @@ console.log("38", imageUri)
             style={tw`flex-row items-center gap-2`}
             onPress={() => navigation.goBack()}>
             <SvgXml xml={IconBack} />
-            <Text style={tw`text-title text-base font-RoboMedium`}>Profilo</Text>
+            <Text style={tw`text-title text-base font-PoppinsMedium`}>
+              Profilo
+            </Text>
           </TouchableOpacity>
         </View>
 
@@ -148,8 +154,8 @@ console.log("38", imageUri)
         <View style={tw`mt-4 items-center`}>
           <View>
             <Image
-            
-            //   source={{uri: imageUri?.length ? imageUri[0] : profileData?.data?.avatar}}
+              source={require('../../assets/images/avatar.png')}
+                source={{uri: imageUri?.length ? imageUri[0] : require('../../assets/images/avatar.png')}}
               style={tw`h-18 w-18 rounded-full`}
             />
             <TouchableOpacity
@@ -163,31 +169,37 @@ console.log("38", imageUri)
         {/* Form Inputs */}
         <View style={tw`mt-4`}>
           <InputText
-            placeholder={'Entra con il nome'}
+            containerStyle={tw`border border-gray-200 rounded-xl`}
+            placeholder={'Enter your name'}
             placeholderColor={'#949494'}
-            label={'Il tuo nome'}
+            label={'Your name'}
+            labelStyle={tw`text-black font-PoppinsBold`}
             onChangeText={text => setUsername(text)}
           />
           <InputText
-            placeholder={'Inserisci la tua posizione'}
+            containerStyle={tw`border border-gray-200 rounded-xl`}
+            placeholder={'Enter your position'}
             placeholderColor={'#949494'}
-            label={'Posizione'}
+            label={'Position'}
+            labelStyle={tw`text-black font-PoppinsBold`}
             onChangeText={text => setLocation(text)}
           />
           <Button
-            title="Salva modifiche"
+            title="Save modification"
             containerStyle={tw`flex-1`}
             // onPress={handleSaveProfile}
           />
 
           {/* Password Update Section */}
-          <Text style={tw`text-center text-title text-2xl font-RoboBold my-4`}>
-            Aggiorna la tua password
+          <Text
+            style={tw`text-center text-title text-2xl font-PoppinsBold my-4`}>
+            Update your password
           </Text>
           <InputText
-            placeholder={'Inserisci la tua vecchia password'}
+          containerStyle={tw`border border-gray-200 px-0 rounded-xl`}
+            placeholder={'Enter your old password'}
             placeholderColor={'#949494'}
-            label={'Vecchia password'}
+            label={'Old password'}
             iconLeft={IconKey}
             iconRight={isShowOldPassword ? IconOpenEye : IconCloseEye}
             isShowPassword={!isShowOldPassword}
@@ -195,9 +207,10 @@ console.log("38", imageUri)
             onChangeText={text => setOldPassword(text)}
           />
           <InputText
-            placeholder={'Inserisci la tua nuova password'}
+          containerStyle={tw`border border-gray-200  px-0 rounded-xl`}
+            placeholder={'Enter your new password'}
             placeholderColor={'#949494'}
-            label={'Nuova password'}
+            label={'New password'}
             iconLeft={IconKey}
             iconRight={isShowNewPassword ? IconOpenEye : IconCloseEye}
             isShowPassword={!isShowNewPassword}
@@ -205,13 +218,16 @@ console.log("38", imageUri)
             onChangeText={text => setNewPassword(text)}
           />
           <InputText
-            placeholder={'Inserisci la tua password di conferma'}
+          containerStyle={tw`border border-gray-200  px-0 rounded-xl`}
+            placeholder={'Enter confirm password'}
             placeholderColor={'#949494'}
-            label={'Conferma la password'}
+            label={'Confirm password'}
             iconLeft={IconKey}
             iconRight={isShowConfirmPassword ? IconOpenEye : IconCloseEye}
             isShowPassword={!isShowConfirmPassword}
-            rightIconPress={() => setIsShowConfirmPassword(!isShowConfirmPassword)}
+            rightIconPress={() =>
+              setIsShowConfirmPassword(!isShowConfirmPassword)
+            }
             onChangeText={text => setConfirmPassword(text)}
           />
         </View>
@@ -219,7 +235,7 @@ console.log("38", imageUri)
         {/* Save Button */}
         <View style={tw`mt-4 gap-y-4`}>
           <Button
-            title="Salva modifiche"
+            title="Save modification"
             containerStyle={tw``}
             onPress={handleChangePassword}
             // onPress={() => setSaveChangesModalVisible(true)}
@@ -237,7 +253,7 @@ console.log("38", imageUri)
               <SvgXml xml={IconTik} height={60} width={60} />
             </View>
             <Text
-              style={tw`text-center text-title text-2xl font-RoboBold mb-2`}>
+              style={tw`text-center text-title text-2xl font-PoppinsBold mb-2`}>
               Your profile has been {'\n'}updated
             </Text>
             <Button
@@ -250,6 +266,7 @@ console.log("38", imageUri)
           </View>
         </NormalModal>
       </ScrollView>
+      <StatusBar translucent={false}/>
     </View>
   );
 };

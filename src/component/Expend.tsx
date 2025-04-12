@@ -24,7 +24,7 @@ const Expend = ({data}: any) => {
               <View style={tw`flex-row justify-between items-center`}>
                 <View style={tw`flex-row items-center gap-4`}>
                   <Image source={item.icon} />
-                  <Text style={tw`text-title text-base font-RoboMedium`}>
+                  <Text style={tw`text-title text-base font-PoppinsMedium`}>
                     {item.cate}
                   </Text>
                 </View>
@@ -40,7 +40,7 @@ const Expend = ({data}: any) => {
                 <TouchableOpacity
                   style={tw`py-2 border-b border-b-primary200`}
                   key={subIndex}>
-                  <Text style={tw`text-subT text-sm font-RoboMedium`}>
+                  <Text style={tw`text-subT text-sm font-PoppinsMedium`}>
                     {subCate.subCate}
                   </Text>
                 </TouchableOpacity>

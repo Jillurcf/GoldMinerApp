@@ -75,7 +75,7 @@ function DrawerContent({navigation}: any) {
             //   })
             // }
             >
-            <Text style={tw`text-title text-sm font-RoboMedium`}>
+            <Text style={tw`text-title text-sm font-PoppinsMedium`}>
               I miei ordini
             </Text>
           </TouchableOpacity>
@@ -88,7 +88,7 @@ function DrawerContent({navigation}: any) {
             //   })
             // }
             >
-            <Text style={tw`text-title text-sm font-RoboMedium`}>
+            <Text style={tw`text-title text-sm font-PoppinsMedium`}>
               Vendi ordini
             </Text>
           </TouchableOpacity>
@@ -101,12 +101,12 @@ function DrawerContent({navigation}: any) {
             //   })
             // }
             >
-            <Text style={tw`text-title text-sm font-RoboMedium`}>
+            <Text style={tw`text-title text-sm font-PoppinsMedium`}>
             Lista dei desideri
             </Text>
           </TouchableOpacity>
           {/* <View style={tw`flex-row items-center justify-between`}>
-            <Text style={tw`text-title text-sm font-RoboMedium`}>
+            <Text style={tw`text-title text-sm font-PoppinsMedium`}>
               Modalità vacanza
             </Text>
             <Switch
@@ -120,28 +120,28 @@ function DrawerContent({navigation}: any) {
             />
           </View> */}
           {/* <TouchableOpacity onPress={() => navigation?.navigate('Faq')}>
-            <Text style={tw`text-title text-sm font-RoboMedium`}>
+            <Text style={tw`text-title text-sm font-PoppinsMedium`}>
               Domande frequenti
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigation?.navigate('TermsCondition')}>
-            <Text style={tw`text-title text-sm font-RoboMedium`}>
+            <Text style={tw`text-title text-sm font-PoppinsMedium`}>
               Termini e condizioni
             </Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation?.navigate('LegalNotes')}>
-            <Text style={tw`text-title text-sm font-RoboMedium`}>
+            <Text style={tw`text-title text-sm font-PoppinsMedium`}>
               Note legali
             </Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation?.navigate('OurPlatform')}>
-            <Text style={tw`text-title text-sm font-RoboMedium`}>
+            <Text style={tw`text-title text-sm font-PoppinsMedium`}>
               La nostra piattaforma
             </Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation?.navigate('HelpSupport')}>
-            <Text style={tw`text-title text-sm font-RoboMedium`}>
+            <Text style={tw`text-title text-sm font-PoppinsMedium`}>
               Centro assistenza
             </Text>
           </TouchableOpacity> */}
@@ -151,7 +151,7 @@ function DrawerContent({navigation}: any) {
       <TouchableOpacity
         style={tw`flex-row items-center justify-between`}
         onPress={() => setLogoutConfirmationModalVisible(true)}>
-        <Text style={tw`text-title text-sm font-RoboMedium`}>Esci</Text>
+        <Text style={tw`text-title text-sm font-PoppinsMedium`}>Esci</Text>
         {/* <SvgXml xml={IconLogout} /> */}
       </TouchableOpacity>
       <NormalModal
@@ -160,7 +160,7 @@ function DrawerContent({navigation}: any) {
         visible={logoutConfirmationModalVisible}
         setVisible={setLogoutConfirmationModalVisible}>
         <View>
-          <Text style={tw`text-title text-2xl text-center font-RoboBold mb-2`}>
+          <Text style={tw`text-title text-2xl text-center font-PoppinsBold mb-2`}>
             Sei sicuro di voler {'\n'}uscire?
           </Text>
 

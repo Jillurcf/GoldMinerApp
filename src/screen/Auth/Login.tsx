@@ -92,6 +92,7 @@ const Login = ({navigation}) => {
               <Button
                 containerStyle={tw`mt-6 bg-[#E8A934]`}
                 title={'Sign in'}
+                onPress={() => navigation.navigate('Drawer')}
               />
 
               {/* OR Divider */}

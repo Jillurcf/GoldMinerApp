@@ -47,7 +47,7 @@ const Profile = ({navigation}: any) => {
                 navigation?.navigate('EditProfile');
               }}>
               <SvgXml xml={IconEdit} />
-              <Text style={tw`text-white text-[10px] font-RoboNormal`}>
+              <Text style={tw`text-white text-[10px] font-PoppinsRegular`}>
                 Edit Profile
               </Text>
             </TouchableOpacity>
@@ -60,27 +60,27 @@ const Profile = ({navigation}: any) => {
               style={tw`h-18 w-18 rounded-full`}
             />
             {/* } */}
-            <Text style={tw`text-title text-lg font-RoboBold mt-2`}>
+            <Text style={tw`text-title text-lg font-PoppinsBold mt-2`}>
               {/* {data?.data?.name} */}
             </Text>
-            <Text style={tw`text-subT text-xs font-RoboNormal`}>
+            <Text style={tw`text-subT text-xs font-PoppinsRegular`}>
               Personal Information
             </Text>
             <View style={tw`flex-row items-center gap-2 mt-2`}>
               <SvgXml xml={IconMap} />
-              <Text style={tw`text-title text-xs font-RoboNormal`}>
+              <Text style={tw`text-title text-xs font-PoppinsRegular`}>
             Elena Gomez
               </Text>
             </View>
             <View style={tw`flex-row items-center gap-2 mt-2`}>
               <SvgXml xml={IconMap} />
-              <Text style={tw`text-title text-xs font-RoboNormal`}>
+              <Text style={tw`text-title text-xs font-PoppinsRegular`}>
             Rankin street
               </Text>
             </View>
             <View style={tw`flex-row items-center gap-2 mt-2`}>
               <SvgXml xml={IconMail} />
-              <Text style={tw`text-title text-xs font-RoboNormal`}>
+              <Text style={tw`text-title text-xs font-PoppinsRegular`}>
                elena@gmail.com
               </Text>
             </View>
@@ -92,9 +92,10 @@ const Profile = ({navigation}: any) => {
           <View style={tw`flex-row flex-wrap justify-between`}>
             {[1, 2, 3, 4, 5, 6].map(product => (
               <TouchableOpacity
-                key={product.id}
+                key={product}
                 style={tw`w-[48%] rounded-xl bg-gray-200 p-2 mt-2`}
-                onPress={() => handleProductDetails(product.id)}>
+                // onPress={() => handleProductDetails(product.id)}
+                >
                 <Image
                   source={require('../../assets/images/image1.png')}
                   style={tw`h-38 w-full rounded-xl`}

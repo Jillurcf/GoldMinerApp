@@ -12,6 +12,7 @@ import ProductDetails from '../screen/productDetails/ProductDetails';
 import Payment from '../screen/payment/Payment';
 import MyCart from '../screen/myCart/MyCart';
 import EditProfile from '../screen/profile/EditProfile';
+import Calculator from '../screen/Calculator';
 
 const Stack = createNativeStackNavigator();
 const Routes = ()=> {
@@ -19,9 +20,10 @@ const Routes = ()=> {
     <Stack.Navigator
     screenOptions={{headerShown: false}}
     >
-         <Stack.Screen name="Drawer" component={DrawerRoute} />
+        
       <Stack.Screen name='Login' component={Login} />
       <Stack.Screen name='Signup' component={Signup} />
+      <Stack.Screen name="Drawer" component={DrawerRoute} />
       <Stack.Screen name='VerifyOtp' component={VerifyOtp} />
       <Stack.Screen name='ForgetPassword' component={ForgetPassword} />
       <Stack.Screen name='CreateNewPassword' component={CreateNewPassword} />
@@ -29,6 +31,7 @@ const Routes = ()=> {
       <Stack.Screen name='Payment' component={Payment} />
       <Stack.Screen name='MyCart' component={MyCart} />
       <Stack.Screen name='EditProfile' component={EditProfile} />
+      <Stack.Screen name='Calculator' component={Calculator} />
    
     </Stack.Navigator>
   )

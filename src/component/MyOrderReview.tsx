@@ -106,27 +106,27 @@ const closeCustomAlert = () => {
           <View style={tw`flex-row justify-between mt-1`}>
             <Text
               numberOfLines={1}
-              style={tw`flex-1 text-title text-sm font-RoboBold`}
+              style={tw`flex-1 text-title text-sm font-PoppinsBold`}
             >
               {item?.product?.title || "No Title"}
             </Text>
           </View>
 
           <View style={tw`flex-row justify-between mt-1`}>
-            <Text style={tw`text-subT text-[10px] font-RoboNormal`}>
+            <Text style={tw`text-subT text-[10px] font-PoppinsNormal`}>
               Condition
             </Text>
-            <Text style={tw`text-primary text-[10px] font-RoboNormal`}>
+            <Text style={tw`text-primary text-[10px] font-PoppinsNormal`}>
               {item?.product?.condition || "Unknown"}
             </Text>
           </View>
 
           <View style={tw`flex-row justify-between mt-1`}>
-            <Text style={tw`text-title text-xs font-RoboNormal`}>
+            <Text style={tw`text-title text-xs font-PoppinsNormal`}>
               €{item?.product?.price || "0.00"}
             </Text>
             <View style={tw`flex-row items-center gap-1`}>
-              <Text style={tw`text-title text-xs font-RoboBold`}>
+              <Text style={tw`text-title text-xs font-PoppinsBold`}>
                 €{item?.buyer_protection_fee || "0.00"}
               </Text>
             </View>

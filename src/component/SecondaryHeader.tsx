@@ -37,10 +37,10 @@ const SecondaryHeader = ({navigation}: any) => {
               </View>
 
               <View>
-                <Text style={tw`text-title text-base font-RoboMedium`}>
+                <Text style={tw`text-title text-base font-PoppinsMedium`}>
                {data?.data?.name}
                 </Text>
-                <Text style={tw`text-subT text-xs font-RoboNormal`}>
+                <Text style={tw`text-subT text-xs font-PoppinsNormal`}>
                   {data?.data?.address}
                 </Text>
               </View>

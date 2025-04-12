@@ -369,11 +369,11 @@ const ProductAddFields = ({
   }
   return (
     <View>
-      <Text style={tw`text-title text-[20px] font-RoboMedium`}>
+      <Text style={tw`text-title text-[20px] font-PoppinsMedium`}>
         {'Vendere un prodotto'}
       </Text>
       <View style={tw`mt-4`}>
-        <Text style={tw`text-title text-sm font-RoboMedium mb-2`}>
+        <Text style={tw`text-title text-sm font-PoppinsMedium mb-2`}>
           Aggiungi fino a 5 foto
         </Text>
 
@@ -383,7 +383,7 @@ const ProductAddFields = ({
             style={tw`flex-row items-center gap-4 border border-primary rounded-xl py-2 px-6`}
             onPress={openGallery}>
             <SvgXml xml={IconPlus} />
-            <Text style={tw`text-primary text-xs font-RoboBold`}>
+            <Text style={tw`text-primary text-xs font-PoppinsBold`}>
               Carica foto
             </Text>
           </TouchableOpacity>
@@ -457,7 +457,7 @@ const ProductAddFields = ({
           />
 
           <View style={tw`mb-2`}>
-            <Text style={[tw`text-title text-sm font-RoboMedium mb-1.5`]}>
+            <Text style={[tw`text-title text-sm font-PoppinsMedium mb-1.5`]}>
               Condizione
             </Text>
             <RadioGroup
@@ -490,7 +490,7 @@ const ProductAddFields = ({
           </View>
 
           <View style={tw`mb-2`}>
-            <Text style={[tw`text-title text-sm font-RoboMedium mb-1.5`]}>
+            <Text style={[tw`text-title text-sm font-PoppinsMedium mb-1.5`]}>
               è il cibo?
             </Text>
             <RadioGroup
@@ -536,7 +536,7 @@ const ProductAddFields = ({
           )}
           {!isLoading && (
             <View style={tw`mt-4`}>
-              <Text style={tw`text-title text-sm font-RoboMedium mb-2`}>
+              <Text style={tw`text-title text-sm font-PoppinsMedium mb-2`}>
                 categoria
               </Text>
               <Dropdown
@@ -547,7 +547,7 @@ const ProductAddFields = ({
                 }))}
                 labelField="label"
                 containerStyle={tw`bg-white rounded-xl`}
-                selectedTextStyle={tw`text-title text-base font-RoboMedium`}
+                selectedTextStyle={tw`text-title text-base font-PoppinsMedium`}
                 valueField="value"
                 placeholder="selezionare il prodotto della categoria"
                 value={productData?.category_id}
@@ -561,14 +561,14 @@ const ProductAddFields = ({
                 }}
                 search
                 searchPlaceholder="cerca categoria"
-                placeholderStyle={tw`text-[#949494] text-base font-RoboMedium pl-2`}
+                placeholderStyle={tw`text-[#949494] text-base font-PoppinsMedium pl-2`}
               />
             </View>
           )}
 
           {subCategories?.length && (
             <View style={tw`mt-4 mb-2`}>
-              <Text style={tw`text-title text-sm font-RoboMedium mb-2`}>
+              <Text style={tw`text-title text-sm font-PoppinsMedium mb-2`}>
                 Subcategory
               </Text>
               <MultiSelect
@@ -582,9 +582,9 @@ const ProductAddFields = ({
                 labelField="label"
                 valueField="value"
                 containerStyle={tw`bg-white rounded-xl`}
-                selectedTextStyle={tw`text-title text-base font-RoboMedium`}
+                selectedTextStyle={tw`text-title text-base font-PoppinsMedium`}
                 placeholder="Seleziona le sottocategorie"
-                placeholderStyle={tw`text-[#949494] text-base font-RoboMedium pl-2`}
+                placeholderStyle={tw`text-[#949494] text-base font-PoppinsMedium pl-2`}
                 value={productData?.sub_category_ids}
                 onChange={selectedItems => {
                   // Handle updated selected items
@@ -634,7 +634,7 @@ const ProductAddFields = ({
         containerStyle={tw`rounded-xl bg-white p-5`}
         visible={stripePaymentVisble}
         setVisible={setStripePaymentVisble}>
-        <Text style={tw`text-center text-title text-lg font-RoboMedium mb-4`}>
+        <Text style={tw`text-center text-title text-lg font-PoppinsMedium mb-4`}>
           Give your card details
         </Text>
         <View style={tw`gap-y-2`}>

@@ -12,6 +12,7 @@ import tw from '../../lib/tailwind';
 import Swiper from 'react-native-swiper';
 import InputText from '../../component/InputText';
 import Header from '../../component/Header';
+import Button from '../../component/Button';
 
 const Home = ({navigation}) => {
   const [searchItem, setSearchItem] = useState('');
@@ -63,90 +64,71 @@ const Home = ({navigation}) => {
 
   return (
     <View style={tw`h-full bg-white px-[4%] pb-4`}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        keyboardShouldPersistTaps="always">
-        {/* <View style={tw`mt-3`}>
-          <InputText
-            value={searchItem}
-            onChangeText={value => setSearchItem(value)}
-            placeholder="Search"
-          />
-        </View> */}
-<Header />
-        {/* Banner Section */}
-        <View style={tw`h-40 rounded-xl overflow-hidden mt-4`}>
-          <Swiper autoplay loop paginationStyle={tw`bottom-2`}>
-            {Data.banners.map(banner => (
-              <View key={banner.id} style={tw`justify-center items-center`}>
-                <Image
-                  source={banner.image}
-                  style={tw`w-full h-40`}
-                  resizeMode="cover"
-                />
-              </View>
-            ))}
-          </Swiper>
+    <ScrollView contentContainerStyle={tw`relative`} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="always">
+      <Header />
+  
+      {/* Banner Section */}
+      <View style={tw`h-40 rounded-xl overflow-hidden mt-4`}>
+        <Swiper autoplay loop paginationStyle={tw`bottom-2`}>
+          {Data.banners.map(banner => (
+            <View key={banner.id} style={tw`justify-center items-center`}>
+              <Image source={banner.image} style={tw`w-full h-40`} resizeMode="cover" />
+            </View>
+          ))}
+        </Swiper>
+      </View>
+  
+      {/* CubonLink Products */}
+      <View>
+        <View style={tw`flex-row justify-between`}>
+          <Text style={tw`text-title text-base font-bold mt-4`}>Cubon link Products</Text>
         </View>
-
-        {/* CubonLink Products */}
-        <View>
-        <View style={tw`flex-row  justify-between`}>
-            <Text style={tw`text-title text-base font-bold mt-4`}>
-             Cubon link Products
-            </Text>
-           
-          </View>
-          <View style={tw`flex-row flex-wrap justify-between`}>
-            {Data?.recommendedProducts.map(product => (
-              <TouchableOpacity
-                key={product.id}
-                style={tw`w-[48%] rounded-xl bg-gray-200 p-2 mt-2`}
-                onPress={() => handleProductDetails(product.id)}>
-                <Image
-                  source={product.images}
-                  style={tw`h-38 w-full rounded-xl`}
-                />
-                <Text style={tw`text-title text-sm font-bold mt-1`}>
-                  {product.title}
-                </Text>
-
-                <Text style={tw`text-gray-700 text-xs`}>{product.price}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
+        <View style={tw`flex-row flex-wrap justify-between`}>
+          {Data?.recommendedProducts.map(product => (
+            <TouchableOpacity
+              key={product.id}
+              style={tw`w-[48%] rounded-xl bg-gray-200 p-2 mt-2`}
+              onPress={() => handleProductDetails(product.id)}>
+              <Image source={product.images} style={tw`h-38 w-full rounded-xl`} />
+              <Text style={tw`text-title text-sm font-bold mt-1`}>{product.title}</Text>
+              <Text style={tw`text-gray-700 text-xs`}>{product.price}</Text>
+            </TouchableOpacity>
+          ))}
         </View>
-
-        {/* Custom Products */}
-        <View>
-          <View style={tw`flex-row  justify-between`}>
-            <Text style={tw`text-title text-base font-bold mt-4`}>
-              Custom Design Products
-            </Text>
-           
-          </View>
-          <View style={tw`flex-row flex-wrap justify-between`}>
-            {Data.sellerProducts.map(product => (
-              <TouchableOpacity
-                key={product.id}
-                style={tw`w-[48%] rounded-xl bg-gray-200 p-2 mt-2`}
-                onPress={() => handleSellerProductDetails(product.id)}>
-                <Image
-                  source={product.images}
-                  style={tw`h-38 w-full rounded-xl`}
-                />
-                <Text style={tw`text-title text-sm font-bold mt-1`}>
-                  {product.title}
-                </Text>
-
-                <Text style={tw`text-gray-700 text-xs`}>{product.price}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
+      </View>
+  
+      {/* Custom Products */}
+      <View>
+        <View style={tw`flex-row justify-between`}>
+          <Text style={tw`text-title text-base font-bold mt-4`}>Custom Design Products</Text>
         </View>
-      </ScrollView>
-      <StatusBar translucent={false}/>
+        <View style={tw`flex-row flex-wrap justify-between`}>
+          {Data.sellerProducts.map(product => (
+            <TouchableOpacity
+              key={product.id}
+              style={tw`w-[48%] rounded-xl bg-gray-200 p-2 mt-2`}
+              onPress={() => handleSellerProductDetails(product.id)}>
+              <Image source={product.images} style={tw`h-38 w-full rounded-xl`} />
+              <Text style={tw`text-title text-sm font-bold mt-1`}>{product.title}</Text>
+              <Text style={tw`text-gray-700 text-xs`}>{product.price}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+    </ScrollView>
+  
+    {/* Floating Button */}
+    <View style={[tw`absolute z-20`, { bottom: 30, right: 20 }]}>
+    
+    <Button
+    onPress={()=> navigation.navigate("Calculator")}
+    containerStyle={tw`px-2`} title="Calculator" />
     </View>
+  
+    <StatusBar translucent={false} />
+  </View>
+  
+  
   );
 };
 

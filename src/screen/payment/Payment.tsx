@@ -186,7 +186,7 @@ import { CustomAlert } from '../../component/CustomAlert';
           style={tw`mt-4 flex-row items-center gap-2 pb-2`}
           onPress={() => navigation?.goBack()}>
           <SvgXml xml={IconBack} />
-          <Text style={tw`text-title text-base font-RoboMedium`}>
+          <Text style={tw`text-title text-base font-PoppinsMedium`}>
             Payment procedure
           </Text>
         </TouchableOpacity>
@@ -195,7 +195,7 @@ import { CustomAlert } from '../../component/CustomAlert';
           keyboardShouldPersistTaps="always"
           contentContainerStyle={tw`pb-4`}>
           <View style={tw`bg-primary100 rounded-xl p-3 mt-4`}>
-            <Text style={tw`text-primary text-sm font-RoboMedium mb-4`}>
+            <Text style={tw`text-primary text-sm font-PoppinsMedium mb-4`}>
               Product Details:
             </Text>
   
@@ -217,7 +217,7 @@ import { CustomAlert } from '../../component/CustomAlert';
             </View>
           </View>
           <View style={tw`bg-primary100 rounded-xl p-3 mt-4`}>
-            <Text style={tw`text-primary text-sm font-RoboMedium mb-4`}>
+            <Text style={tw`text-primary text-sm font-PoppinsMedium mb-4`}>
               Order summary:
             </Text>
   
@@ -261,7 +261,7 @@ import { CustomAlert } from '../../component/CustomAlert';
           </View>
   
           <View style={tw`mt-5 bg-primary100 rounded-xl p-3`}>
-            <Text style={tw`text-title text-sm font-RoboBold`}>
+            <Text style={tw`text-title text-sm font-PoppinsBold`}>
               Shipping address:{' '}
             </Text>
             <View style={tw`mt-3`}>
@@ -324,11 +324,11 @@ import { CustomAlert } from '../../component/CustomAlert';
             <View style={tw`items-center`}>
               <Image source={require('../../assets/images/banner2.png')} />
             </View>
-            <Text style={tw`text-primary text-xl font-RoboBold text-center mt-4`}>
+            <Text style={tw`text-primary text-xl font-PoppinsBold text-center mt-4`}>
               Congratulations!{'\n'}Your purchase is done
             </Text>
             <Text
-              style={tw`text-subT text-base font-RoboMedium mt-2 text-center`}>
+              style={tw`text-subT text-base font-PoppinsMedium mt-2 text-center`}>
               Thank you for make purchase with us
             </Text>
             <Button
@@ -348,7 +348,7 @@ import { CustomAlert } from '../../component/CustomAlert';
           visible={isRatingModalVisible}
           setVisible={setIsRatingModalVisible}>
           <View style={tw``}>
-            <Text style={tw`text-title text-xl font-RoboBold text-center mt-4`}>
+            <Text style={tw`text-title text-xl font-PoppinsBold text-center mt-4`}>
               Give ratings
             </Text>
             {/* <View style={tw`flex-row justify-center mb-2 mt-4`}>
@@ -364,7 +364,7 @@ import { CustomAlert } from '../../component/CustomAlert';
                 ))}
               </View>
             </View> */}
-            <Text style={tw`text-title text-sm font-RoboMedium mt-2`}>
+            <Text style={tw`text-title text-sm font-PoppinsMedium mt-2`}>
               Review comments
             </Text>
             <InputText

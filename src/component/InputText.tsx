@@ -37,7 +37,7 @@ const InputText = ({
         <TextInput
           placeholder={placeholder}
           placeholderTextColor={placeholderColor}
-          style={[tw`font-PoppinsMedium flex-1 text-white`, style]}
+          style={[tw`font-PoppinsMedium flex-1 text-black`, style]}
           onChangeText={onChangeText}
           secureTextEntry={isShowPassword}
           keyboardType={keyboardType || "default"}

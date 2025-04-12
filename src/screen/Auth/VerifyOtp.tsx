@@ -58,7 +58,7 @@ const VerifyOtp = ({navigation, route}) => {
       // if (response) {
       console.log('OTP Verified Successfully!');
       if (from === 'signup') {
-        navigation.navigate('Login'); // Navigate to Login if from signup
+        navigation.navigate('Drawer'); // Navigate to Login if from signup
       } else {
         navigation.navigate('CreateNewPassword', {email}); // Otherwise, go to CreateNewPass
       }
@@ -96,7 +96,7 @@ const VerifyOtp = ({navigation, route}) => {
                     onBlur={() => setFocusedIndex(null)}
                     style={tw`${
                       focusedIndex === index ? 'border-primary' : 'border-title'
-                    } border-[1px] rounded-2xl flex-1 h-16 font-extrabold text-center text-4xl font-RoboBold text-primary`}
+                    } border-[1px] rounded-2xl flex-1 h-16 font-extrabold text-center text-4xl font-PoppinsBold text-primary`}
                     keyboardType="numeric"
                     selectionColor={'#064145'}
                     placeholderTextColor={'#949494'}
